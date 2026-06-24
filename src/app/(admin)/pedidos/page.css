@@ -1,0 +1,73 @@
+/* ===== PÁGINA DE PEDIDOS ===== */
+
+.page {
+  padding: 25px;
+}
+
+/* título já herda, mas reforçando */
+.title {
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #1d4ed8;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+/* tabela de pedidos */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* cabeçalho */
+.table thead {
+  background: #0f172a;
+  color: #fff;
+}
+
+.table th {
+  text-align: left;
+  padding: 14px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* linhas */
+.table td {
+  padding: 14px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.table tbody tr:hover {
+  background: #f1f5f9;
+  transition: 0.2s;
+}
+
+/* loading e vazio */
+.empty {
+  padding: 20px;
+  text-align: center;
+  color: #666;
+  background: #fff;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
+.btn-small {
+  width: auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 5px 10px;
+  font-size: 12px;
+  border-radius: 6px;
+
+  white-space: nowrap;
+}
