@@ -22,3 +22,23 @@ export async function buscarClasses() {
 
   return { data, error };
 }
+
+
+export async function buscarClassePorId(id: string) {
+  const { data, error } = await supabase
+    .from("classes")
+    .select("*")
+    .eq("id", id)
+    .single();
+
+  return { data, error };
+}
+
+export async function listarClasses() {
+  const { data, error } = await supabase
+    .from("classes")
+    .select("id, nome")
+    .order("nome");
+
+  return { data, error };
+}

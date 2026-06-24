@@ -5,6 +5,20 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "./layout.css";
 
+import { Inter, Poppins } from "next/font/google";
+
+// ✅ FONTES FORA DO COMPONENTE (CORRETO)
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-poppins",
+});
+
 export default function AdminLayout({
   children,
 }: {
@@ -44,7 +58,7 @@ export default function AdminLayout({
   }
 
   return (
-    <div className="container">
+    <div className={`${inter.variable} ${poppins.variable} container`}>
 
       {/* SIDEBAR */}
       <aside className="sidebar">
@@ -53,7 +67,7 @@ export default function AdminLayout({
         <nav className="nav">
           <Link href="/dashboard">🏠 Dashboard</Link>
           <Link href="/congregations">🏛 Congregações</Link>
-          <Link href="/admin/orders">📦 Pedidos</Link>
+          <Link href="/pedidos">📦 Pedidos</Link>
           <Link href="/cllasses">📚 Classes</Link>
         </nav>
       </aside>

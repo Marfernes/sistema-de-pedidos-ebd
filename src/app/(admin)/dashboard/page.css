@@ -92,3 +92,37 @@
   font-weight: bold;
   color: #111827;
 }
+
+.card-blue {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: white;
+}
+
+.card-green {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+  color: white;
+}
+
+.card-red {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: white;
+}
+
+.card-gold {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+  color: white;
+}
+
+.card-blue h3,
+.card-green h3,
+.card-red h3,
+.card-gold h3 {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.card-blue p,
+.card-green p,
+.card-red p,
+.card-gold p {
+  color: white;
+}

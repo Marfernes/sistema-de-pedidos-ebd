@@ -207,3 +207,44 @@
 .btn-delete:hover {
   background: #dc2626;
 }
+
+.btn-back {
+  background: #6b7280;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-back:hover {
+  background: #4b5563;
+}
+
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 16px 0 20px;
+  gap: 10px;
+}
+
+.top-actions button {
+  margin: 0;
+  line-height: 1;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
