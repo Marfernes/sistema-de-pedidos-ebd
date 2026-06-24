@@ -1,13 +1,13 @@
-import { createSupabaseServer } from "@/lib/supabase-server";
+import { supabase } from "@/lib/supabase/client";
 
 export async function buscarAlunos() {
-  const supabase = await createSupabaseServer();
-
-  return supabase.from("alunos").select("*, classes(nome)");
+  return await supabase
+    .from("alunos")
+    .select("*, classes(nome)");
 }
 
 export async function criarAluno(dados: any) {
-  const supabase = await createSupabaseServer();
-
-  return supabase.from("alunos").insert(dados);
+  return await supabase
+    .from("alunos")
+    .insert(dados);
 }
