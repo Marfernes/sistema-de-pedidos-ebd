@@ -5,6 +5,7 @@ import ModalCadastroClasse from "./ModalCadastroClasse";
 import "../page.css";
 import Link from "next/link";
 import { PageTitle } from "@/components/PageTitle/PageTitle";
+import "../page.css";
 
 export default function ClassesClient({ classes }: any) {
     const [aberto, setAberto] = useState(false);

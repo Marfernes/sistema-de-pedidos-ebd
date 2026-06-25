@@ -29,3 +29,23 @@ export async function listarPedidos(page: number, pageSize: number) {
     total: count ?? 0,
   };
 }
+
+export async function listarTodosPedidos() {
+  const { data, error } = await supabase
+    .from("pedidos_publicos")
+    .select(`
+      id,
+      nome,
+      telefone,
+      tipo_revista,
+      status_pagamento,
+      created_at,
+      classe_id,
+      classes (
+        nome
+      )
+    `)
+    .order("created_at", { ascending: false });
+
+  return { data, error };
+}

@@ -142,3 +142,36 @@
     gap: 8px;
   }
 }
+
+.title-actions {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.btn-export {
+  margin-left: auto;
+
+  background: #1d4ed8;
+  color: white;
+
+  padding: 10px 16px;
+  border-radius: 8px;
+
+  border: none;
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  transition: 0.2s;
+}
+
+.btn-export:hover {
+  background: #1e3a8a;
+  transform: translateY(-1px);
+}
+
+.btn-export:active {
+  transform: translateY(0px);
+}
