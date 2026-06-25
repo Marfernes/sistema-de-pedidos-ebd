@@ -12,6 +12,7 @@
   border-radius: 12px;
   overflow: hidden;
   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  min-width: 700px;
 }
 
 .table-card {
@@ -23,6 +24,7 @@
   margin-top: 12px;
 
   overflow-x: auto; /* evita quebrar no mobile */
+  -webkit-overflow-scrolling: touch;
 }
 
 /* cabeçalho */
@@ -116,4 +118,27 @@
 .pagination span {
   font-size: 14px;
   color: #94a3b8;
+}
+
+@media (max-width: 768px) {
+
+  .page-card {
+    padding: 10px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .btn.btn-primary.btn-small {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  .pagination {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
