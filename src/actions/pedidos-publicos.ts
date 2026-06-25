@@ -16,12 +16,11 @@ export async function criarPedido(dados: {
   return { data, error };
 }
 
-export async function marcarComoPago(id: string) {
-  const { data, error } = await supabase
+export async function marcarComoPago(id: number) {
+  const { error } = await supabase
     .from("pedidos_publicos")
     .update({ status_pagamento: "pago" })
-    .eq("id", id)
-    .select();
+    .eq("id", id);
 
-  return { data, error };
+  return { error };
 }

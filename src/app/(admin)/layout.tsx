@@ -4,10 +4,14 @@ import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "./layout.css";
+import { IoLogOutOutline } from "react-icons/io5";
+import { usePathname } from "next/navigation";
+
+import Footer from "@/components/Footer";
 
 import { Inter, Poppins } from "next/font/google";
 
-// ✅ FONTES FORA DO COMPONENTE (CORRETO)
+// FONTES FORA DO COMPONENTE (CORRETO)
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -26,28 +30,52 @@ export default function AdminLayout({
 }) {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [usuario, setUsuario] = useState<any>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const token = localStorage.getItem("token");
 
     if (!token) {
-      router.push("/login");
+      router.replace("/login");
       return;
     }
 
-    fetch("/api/auth/me", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data.user) {
-          router.push("/login");
+    async function loadUser() {
+      try {
+        const res = await fetch("/api/auth/me", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!res.ok) {
+          router.replace("/login");
+          return;
         }
-      })
-      .finally(() => setLoading(false));
+
+        const data = await res.json();
+
+        if (!data?.user) {
+          router.replace("/login");
+          return;
+        }
+
+        setUsuario(data.user);
+      } catch (error) {
+        router.replace("/login");
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadUser();
   }, [router]);
+
+  function logout() {
+    localStorage.removeItem("token");
+    router.replace("/login");
+  }
 
   if (loading) {
     return (
@@ -62,13 +90,39 @@ export default function AdminLayout({
 
       {/* SIDEBAR */}
       <aside className="sidebar">
-        <div className="logo">📖 EBD System</div>
+        <div className="logo">
+          <span className="logo-mark">EBD</span>
+          <span className="logo-text">SYSTEM</span>
+        </div>
 
         <nav className="nav">
-          <Link href="/dashboard">🏠 Dashboard</Link>
-          <Link href="/congregations">🏛 Congregações</Link>
-          <Link href="/pedidos">📦 Pedidos</Link>
-          <Link href="/cllasses">📚 Classes</Link>
+          <Link
+            href="/dashboard"
+            className={pathname === "/dashboard" ? "active" : ""}
+          >
+            Dashboard
+          </Link>
+
+          <Link
+            href="/congregations"
+            className={pathname === "/congregations" ? "active" : ""}
+          >
+            Congregações
+          </Link>
+
+          <Link
+            href="/pedidos"
+            className={pathname === "/pedidos" ? "active" : ""}
+          >
+            Pedidos
+          </Link>
+
+          <Link
+            href="/cllasses"
+            className={pathname === "/classes" ? "active" : ""}
+          >
+            Classes
+          </Link>
         </nav>
       </aside>
 
@@ -77,10 +131,16 @@ export default function AdminLayout({
 
         {/* HEADER */}
         <header className="header">
-          <h3>Sistema de Pedidos EBD</h3>
 
-          <div>
-            👤 Usuário logado
+          <div className="user-info">
+            <span>
+              👤 {usuario?.nome ?? usuario?.email ?? "Usuário"}
+            </span>
+
+            <button className="btn-logout" onClick={logout}>
+              <IoLogOutOutline />
+              <span>Sair</span>
+            </button>
           </div>
         </header>
 
@@ -88,6 +148,9 @@ export default function AdminLayout({
         <main className="content">
           {children}
         </main>
+
+        {/* FOOTER */}
+        <Footer />
 
       </div>
 

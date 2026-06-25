@@ -4,6 +4,7 @@ import { useState } from "react";
 import ModalCadastroClasse from "./ModalCadastroClasse";
 import "../page.css";
 import Link from "next/link";
+import { PageTitle } from "@/components/PageTitle/PageTitle";
 
 export default function ClassesClient({ classes }: any) {
     const [aberto, setAberto] = useState(false);
@@ -13,7 +14,9 @@ export default function ClassesClient({ classes }: any) {
 
             {/* CABEÇALHO */}
             <div className="cabecalho">
-                <h1 className="title">Classes</h1>
+                <PageTitle
+                    title="Classes"
+                />
 
                 <button onClick={() => setAberto(true)}>
                     + Nova Classe

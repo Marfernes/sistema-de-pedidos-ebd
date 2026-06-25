@@ -39,29 +39,6 @@
   color: white;
 }
 
-/* MAIN */
-.main {
-  flex: 1;
-  padding: 25px;
-}
-
-/* HEADER */
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 25px;
-}
-
-.header h1 {
-  font-size: 22px;
-  color: #111827;
-}
-
-.user {
-  font-size: 14px;
-  color: #6b7280;
-}
 
 /* CARDS */
 .cards {
@@ -125,4 +102,57 @@
 .card-red p,
 .card-gold p {
   color: white;
+}
+
+.btn-whatsapp {
+  display: inline-flex; 
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content; 
+  
+  margin: 12px 0 20px;
+
+  background: #16a34a;
+  color: white;
+
+  padding: 10px 14px;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: 0.2s;
+}
+
+.btn-whatsapp:hover {
+  background: #15803d;
+}
+
+.share-card {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px;
+
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 12px;
+}
+
+.share-text h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #e2e8f0;
+}
+
+.share-text p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #94a3b8;
 }

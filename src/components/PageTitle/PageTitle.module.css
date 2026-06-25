@@ -1,0 +1,15 @@
+.page-title {
+  margin-bottom: 16px;
+}
+
+.page-title h1 {
+  font-size: 22px;
+  font-weight: 600;
+  color: #e2e8f0;
+}
+
+.page-title .subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin-top: 4px;
+}
